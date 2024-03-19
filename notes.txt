@@ -45,3 +45,9 @@ PROCESS TO WRITE THE dockerfile
 
 --> [[SCENARIO]] write 0 in the port number to generate any random port number so that if another container is running on say 5500, the randomly generated
     port number will be something else
+
+dockerIgnore file
+--> it has the files which we don't want to include inside the docker image
+--> make a file .dockerignore and ignore the notes.txt file and node_modules (since they are bulky)
+--> since we already have npm install command in dockerfile to install the needed dependencies on the globally
+--> to ignore all the text files in a single command, use .txt in 
