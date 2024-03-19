@@ -1,16 +1,15 @@
-inside dockerfile
-
+inside dockerfile:
 --> To run the app, [node index.js]
 --> docker can be run in any terminal since it is globally installed
 
-Docker commands
+Docker commands:
 --> To pull an image [docker pull <imageName>]
 --> To run an image as a container [docker run -it --name <name of container u want> <image name> /bin/bash]
     it => interactive
     /bin/bash means after container is created, run a bash inside it
 
 
-PROCESS TO WRITE THE dockerfile
+PROCESS TO WRITE THE dockerfile:
 --> install the microsoft docker extension. this will enable intellisense for the code inside dockerfile
 --> follow the commands in exact order as executed when creating this application
 --> like first we installed the latest node image
@@ -46,8 +45,23 @@ PROCESS TO WRITE THE dockerfile
 --> [[SCENARIO]] write 0 in the port number to generate any random port number so that if another container is running on say 5500, the randomly generated
     port number will be something else
 
-dockerIgnore file
+dockerIgnore file:
 --> it has the files which we don't want to include inside the docker image
 --> make a file .dockerignore and ignore the notes.txt file and node_modules (since they are bulky)
 --> since we already have npm install command in dockerfile to install the needed dependencies on the globally
 --> to ignore all the text files in a single command, use .txt in 
+
+
+IMAGE DELETION:
+--> there are two ways: delete icon in docker desktop and via command line
+--> but if the image is being used by any container (the container may be running or may not be running)
+    then u can't directly delete that image using delete icon
+--> to delete that image, u first need to delete the container/s using it.
+--> to delete unused image using terminal => docker image rm <image_name>
+--> to delete used image using terminal => docker image rm <image_name> -f
+
+--> to list all containers => docker ps -a
+    ps means processors
+--> to delete a non-running container via terminal => docker container rm <container_name>
+--> to delete a running container via terminal => docker container rm <container_name> -f
+--> to delete a running container via desktop => pause the container and then delete using icon
