@@ -1,12 +1,21 @@
-inside dockerfile:
+INSIDE DOCKERFILE
 --> To run the app, [node index.js]
 --> docker can be run in any terminal since it is globally installed
 
-Docker commands:
+DOCKER COMMANDS
 --> To pull an image [docker pull <imageName>]
 --> To run an image as a container [docker run -it --name <name of container u want> <image name> /bin/bash]
     it => interactive
     /bin/bash means after container is created, run a bash inside it
+--> to run image as container along with port specification:
+    docker run --name <name_of_container_u_want> -p <port_u_choose>:<port_of_app> <image_u_are_running>
+
+--> to delete everything inside the local system => docker system prune -a
+    This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
 
 
 PROCESS TO WRITE THE dockerfile:
@@ -32,7 +41,9 @@ PROCESS TO WRITE THE dockerfile:
 --> ab dockerfile ready hai, uska build bnao using this cmd in vs code terminal: docker build -t <name_for_image> .
     t => tag (the name u want to give)
     . => root me bnaegi image, if u want to make image in some other folder, give ../folder_path
+    
 
+    [[NOTE]] run this command in that directory where there is dockerfile, better to run in vs code terminal
     [[NOTE]] image will be visible in docker desktop, not in the VS code
 
 --> to list all images inside docker, run this in terminal (cmd), docker images
@@ -45,7 +56,7 @@ PROCESS TO WRITE THE dockerfile:
 --> [[SCENARIO]] write 0 in the port number to generate any random port number so that if another container is running on say 5500, the randomly generated
     port number will be something else
 
-dockerIgnore file:
+DOCKERIGNORE FILE
 --> it has the files which we don't want to include inside the docker image
 --> make a file .dockerignore and ignore the notes.txt file and node_modules (since they are bulky)
 --> since we already have npm install command in dockerfile to install the needed dependencies on the globally
@@ -65,3 +76,14 @@ IMAGE DELETION:
 --> to delete a non-running container via terminal => docker container rm <container_name>
 --> to delete a running container via terminal => docker container rm <container_name> -f
 --> to delete a running container via desktop => pause the container and then delete using icon
+
+
+IMAGE VERSIONING:
+--> whenever introducing changes inside the dockerimage, u need to create a new image
+--> either keep a completely different name to that updated image or use version 
+--> Versioning is more feasible over here since its easy to track and comprehend
+--> delete everything inside the docker desktop first and create a new image
+
+--> if we don't create any version, we get tag = latest
+--> to create new version of image => docker build -t <image_name>:v<version_no> .
+--> we get tag = v<version_no>
