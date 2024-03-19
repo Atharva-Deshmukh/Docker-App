@@ -37,3 +37,11 @@ PROCESS TO WRITE THE dockerfile
     [[NOTE]] image will be visible in docker desktop, not in the VS code
 
 --> to list all images inside docker, run this in terminal (cmd), docker images
+
+--> Run the image on port 5500, which is also the app port and type localhost 5500 on browser, u will see tha app running there
+
+--> [[SCENARIO]] no port is given by default while running the container, the app runs in docker but you cannot access it on the browser
+    hence we write EXPOSE <port_number> to be able to run this app on the browser as well
+
+--> [[SCENARIO]] write 0 in the port number to generate any random port number so that if another container is running on say 5500, the randomly generated
+    port number will be something else
