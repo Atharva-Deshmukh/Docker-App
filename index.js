@@ -19,7 +19,7 @@ app.get('/', (request, response) => {
     ])
 });
 
-// listening this app at port 5000
+// listening this app at port 5500
 app.listen(5500, () => {
-    console.log('App is running on port 5500')
+    console.log('App started at port 5500')
 });
