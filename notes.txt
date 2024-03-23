@@ -176,3 +176,14 @@ DOCKER COMPOSE.yam file
 --> build: give path where u want to create the build, use . if jaha hai vahi build hona to
 --> container_name: Defines the name for the container created from this service.
 --> ports: Maps port 5500 on the host to port 5500 on the container, allowing access to the Node.js application.
+
+HOW TO DEPLOY DOCKERISED APP ON SERVER: (used docker playground)
+
+--> now while deploying, image should be created keeping in mind the OS it intends to run on
+--> dockerlabs runs on linux
+--> command to create OS specific image docker buildx build --platform=linux/amd64 -t <docker_hub_user_name/docker_hub_repo_name>
+    in my case its -> devvrath/test-repo
+    buildx: to mention that image is being created for a specific OS
+    = koi koi systems me chalta hai kisi kisi me nhi chalta
+--> use =>  docker login 
+--> docker push <image_name>
