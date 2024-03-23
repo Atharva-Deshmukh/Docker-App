@@ -151,3 +151,28 @@ docker run --name basic-app-container -p 5500:5500 --rm -v C:/Users/z004r8tj/Des
     v to create volume and give the ABSOLUTE path (NOT relative one) of the project after v
     BEFORE : yaha se data uthaayenge
     AFTER : yaha data rakhenge inside volume
+
+
+COMPOSE FILE:
+
+Docker Compose is a tool you can use to define and share multi-container applications. 
+This means you can run a project with multiple containers using a single source.
+
+Docker Compose is used to run multiple containers as a single service. 
+
+For example, assume you're building a project with NodeJS and MongoDB together. 
+You can create a single image that starts both containers as a service – you don't need to 
+start each separately.
+
+u need to create compose.yaml file in the root
+
+A Compose file is used to define how one or more containers that make up your application are configured. 
+Once you have a Compose file, you can create and start your application with a single command: docker compose up
+
+DOCKER COMPOSE.yam file
+
+--> services: This section defines the services for your application.
+--> image: Specifies the base Docker image to use for the service. 
+--> build: give path where u want to create the build, use . if jaha hai vahi build hona to
+--> container_name: Defines the name for the container created from this service.
+--> ports: Maps port 5500 on the host to port 5500 on the container, allowing access to the Node.js application.

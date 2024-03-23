@@ -1,0 +1,6 @@
+services:
+  img:
+    build: .
+    container_name: basic-app-container
+    ports: 
+      - 5500:5500
